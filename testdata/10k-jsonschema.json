@@ -1,0 +1,290 @@
+{
+  "type": "object",
+  "properties": {
+    "documentType": { "type": "string" },
+    "reportDetails": {
+      "type": "object",
+      "properties": {
+        "formType": { "type": "string" },
+        "fiscalYearEnd": { "type": "string", "format": "date" },
+        "commissionFileNumber": { "type": "string" },
+        "companyName": { "type": "string" },
+        "stateOfIncorporation": { "type": "string" },
+        "irsEmployerId": { "type": "string" },
+        "address": { "type": "string" },
+        "phoneNumber": { "type": "string" }
+      },
+      "required": [
+        "formType",
+        "fiscalYearEnd",
+        "commissionFileNumber",
+        "companyName",
+        "stateOfIncorporation",
+        "irsEmployerId",
+        "address",
+        "phoneNumber"
+      ]
+    },
+    "securities": {
+      "type": "object",
+      "properties": {
+        "registeredUnderSection12b": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "titleOfClass": { "type": "string" },
+              "tradingSymbol": { "type": "string" },
+              "exchangeName": { "type": "string" }
+            },
+            "required": ["titleOfClass", "tradingSymbol", "exchangeName"]
+          }
+        },
+        "registeredUnderSection12g": { "type": "string" }
+      },
+      "required": ["registeredUnderSection12b", "registeredUnderSection12g"]
+    },
+    "issuerStatus": {
+      "type": "object",
+      "properties": {
+        "wellKnownSeasonedIssuer": { "type": "boolean" },
+        "reportsNotRequired": { "type": "boolean" },
+        "filedAllReports": { "type": "boolean" },
+        "subjectToFilingRequirements": { "type": "boolean" },
+        "largeAcceleratedFiler": { "type": "boolean" },
+        "acceleratedFiler": { "type": "boolean" },
+        "nonAcceleratedFiler": { "type": "boolean" },
+        "smallerReportingCompany": { "type": "boolean" },
+        "emergingGrowthCompany": { "type": "boolean" },
+        "shellCompany": { "type": "boolean" }
+      },
+      "required": [
+        "wellKnownSeasonedIssuer",
+        "reportsNotRequired",
+        "filedAllReports",
+        "subjectToFilingRequirements",
+        "largeAcceleratedFiler",
+        "acceleratedFiler",
+        "nonAcceleratedFiler",
+        "smallerReportingCompany",
+        "emergingGrowthCompany",
+        "shellCompany"
+      ]
+    },
+    "marketValue": {
+      "type": "object",
+      "properties": {
+        "marketValueDate": { "type": "string", "format": "date" },
+        "marketValueAmount": { "type": "string" }
+      },
+      "required": ["marketValueDate", "marketValueAmount"]
+    },
+    "sharesOutstanding": {
+      "type": "object",
+      "properties": {
+        "classA": {
+          "type": "object",
+          "properties": {
+            "date": { "type": "string", "format": "date" },
+            "shares": { "type": "integer" }
+          },
+          "required": ["date", "shares"]
+        },
+        "classB": {
+          "type": "object",
+          "properties": {
+            "date": { "type": "string", "format": "date" },
+            "shares": { "type": "integer" }
+          },
+          "required": ["date", "shares"]
+        }
+      },
+      "required": ["classA", "classB"]
+    },
+    "documentsIncorporatedByReference": {
+      "type": "object",
+      "properties": { "proxyStatement": { "type": "string" } },
+      "required": ["proxyStatement"]
+    },
+    "tableOfContents": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "part": { "type": "string" },
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "itemNumber": { "type": "string" },
+                "itemTitle": { "type": "string" },
+                "pageNumber": { "type": "integer" }
+              },
+              "required": ["itemNumber", "itemTitle", "pageNumber"]
+            }
+          }
+        },
+        "required": ["part", "items"]
+      }
+    },
+    "forwardLookingStatements": { "type": "string" },
+    "limitationsOfMetrics": { "type": "string" },
+    "businessOverview": {
+      "type": "object",
+      "properties": {
+        "mission": { "type": "string" },
+        "products": { "type": "array", "items": { "type": "string" } },
+        "financialSegments": { "type": "array", "items": { "type": "string" } },
+        "competition": { "type": "string" },
+        "technology": { "type": "string" },
+        "salesAndOperations": { "type": "string" },
+        "marketing": { "type": "string" },
+        "intellectualProperty": { "type": "string" },
+        "governmentRegulation": { "type": "string" },
+        "humanCapital": { "type": "string" }
+      },
+      "required": [
+        "mission",
+        "products",
+        "financialSegments",
+        "competition",
+        "technology",
+        "salesAndOperations",
+        "marketing",
+        "intellectualProperty",
+        "governmentRegulation",
+        "humanCapital"
+      ]
+    },
+    "riskFactors": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "category": { "type": "string" },
+          "risks": { "type": "array", "items": { "type": "string" } }
+        },
+        "required": ["category", "risks"]
+      }
+    },
+    "financialStatements": {
+      "type": "object",
+      "properties": {
+        "balanceSheet": {
+          "type": "object",
+          "properties": {
+            "date": { "type": "string", "format": "date" },
+            "assets": {
+              "type": "object",
+              "properties": {
+                "currentAssets": {
+                  "type": "object",
+                  "properties": {
+                    "cashAndCashEquivalents": { "type": "string" },
+                    "marketableSecurities": { "type": "string" },
+                    "accountsReceivable": { "type": "string" },
+                    "prepaidExpenses": { "type": "string" }
+                  },
+                  "required": [
+                    "cashAndCashEquivalents",
+                    "marketableSecurities",
+                    "accountsReceivable",
+                    "prepaidExpenses"
+                  ]
+                },
+                "nonCurrentAssets": {
+                  "type": "object",
+                  "properties": {
+                    "propertyAndEquipment": { "type": "string" },
+                    "goodwill": { "type": "string" },
+                    "intangibleAssets": { "type": "string" }
+                  },
+                  "required": [
+                    "propertyAndEquipment",
+                    "goodwill",
+                    "intangibleAssets"
+                  ]
+                }
+              },
+              "required": ["currentAssets", "nonCurrentAssets"]
+            },
+            "liabilities": {
+              "type": "object",
+              "properties": {
+                "currentLiabilities": {
+                  "type": "object",
+                  "properties": {
+                    "accountsPayable": { "type": "string" },
+                    "accruedExpenses": { "type": "string" }
+                  },
+                  "required": ["accountsPayable", "accruedExpenses"]
+                },
+                "nonCurrentLiabilities": {
+                  "type": "object",
+                  "properties": { "longTermDebt": { "type": "string" } },
+                  "required": ["longTermDebt"]
+                }
+              },
+              "required": ["currentLiabilities", "nonCurrentLiabilities"]
+            },
+            "equity": {
+              "type": "object",
+              "properties": { "totalEquity": { "type": "string" } },
+              "required": ["totalEquity"]
+            }
+          },
+          "required": ["date", "assets", "liabilities", "equity"]
+        },
+        "incomeStatement": {
+          "type": "object",
+          "properties": {
+            "date": { "type": "string", "format": "date" },
+            "revenue": { "type": "string" },
+            "costOfRevenue": { "type": "string" },
+            "operatingExpenses": { "type": "string" },
+            "netIncome": { "type": "string" }
+          },
+          "required": [
+            "date",
+            "revenue",
+            "costOfRevenue",
+            "operatingExpenses",
+            "netIncome"
+          ]
+        },
+        "cashFlowStatement": {
+          "type": "object",
+          "properties": {
+            "date": { "type": "string", "format": "date" },
+            "cashFromOperatingActivities": { "type": "string" },
+            "cashFromInvestingActivities": { "type": "string" },
+            "cashFromFinancingActivities": { "type": "string" }
+          },
+          "required": [
+            "date",
+            "cashFromOperatingActivities",
+            "cashFromInvestingActivities",
+            "cashFromFinancingActivities"
+          ]
+        }
+      },
+      "required": ["balanceSheet", "incomeStatement", "cashFlowStatement"]
+    }
+  },
+  "required": [
+    "documentType",
+    "reportDetails",
+    "securities",
+    "issuerStatus",
+    "marketValue",
+    "sharesOutstanding",
+    "documentsIncorporatedByReference",
+    "tableOfContents",
+    "forwardLookingStatements",
+    "limitationsOfMetrics",
+    "businessOverview",
+    "riskFactors",
+    "financialStatements"
+  ]
+}
