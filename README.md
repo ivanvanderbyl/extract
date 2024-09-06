@@ -5,7 +5,7 @@ A tool for extracting structured data from unstructured documents. Designed arou
 ## Installation
 
 ```bash
-go get -d github.com/ivanvanderbyl/extract/cmd
+# TBA
 ```
 
 ## Usage
