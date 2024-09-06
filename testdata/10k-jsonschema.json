@@ -1,290 +1,157 @@
 {
   "type": "object",
   "properties": {
-    "documentType": { "type": "string" },
-    "reportDetails": {
+    "form_type": { "type": "string" },
+    "fiscal_year_end": { "type": "string" },
+    "commission_file_number": { "type": "string" },
+    "company_name": { "type": "string" },
+    "jurisdiction_of_incorporation": { "type": "string" },
+    "employer_identification_number": { "type": "string" },
+    "address": {
       "type": "object",
       "properties": {
-        "formType": { "type": "string" },
-        "fiscalYearEnd": { "type": "string", "format": "date" },
-        "commissionFileNumber": { "type": "string" },
-        "companyName": { "type": "string" },
-        "stateOfIncorporation": { "type": "string" },
-        "irsEmployerId": { "type": "string" },
-        "address": { "type": "string" },
-        "phoneNumber": { "type": "string" }
+        "street": { "type": "string" },
+        "city": { "type": "string" },
+        "state": { "type": "string" },
+        "zip_code": { "type": "string" }
+      },
+      "required": ["street", "city", "state", "zip_code"],
+      "additionalProperties": false
+    },
+    "telephone_number": { "type": "string" },
+    "securities_registered": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "title_of_class": { "type": "string" },
+          "trading_symbol": { "type": "string" },
+          "exchange_name": { "type": "string" }
+        },
+        "required": ["title_of_class", "trading_symbol", "exchange_name"],
+        "additionalProperties": false
+      }
+    },
+    "well_known_seasoned_issuer": { "type": "boolean" },
+    "reports_filing_requirement": { "type": "boolean" },
+    "large_accelerated_filer": { "type": "boolean" },
+    "accelerated_filer": { "type": "boolean" },
+    "non_accelerated_filer": { "type": "boolean" },
+    "smaller_reporting_company": { "type": "boolean" },
+    "emerging_growth_company": { "type": "boolean" },
+    "shell_company": { "type": "boolean" },
+    "aggregate_market_value": { "type": "string" },
+    "number_of_shares_outstanding": {
+      "type": "object",
+      "properties": {
+        "class_a": { "type": "integer" },
+        "class_b": { "type": "integer" }
+      },
+      "required": ["class_a", "class_b"],
+      "additionalProperties": false
+    },
+    "documents_incorporated_by_reference": { "type": "string" },
+    "business_overview": { "type": "string" },
+    "financial_information": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "total_revenue": { "type": "string" },
+        "net_income": { "type": "string" },
+        "total_assets": { "type": "string" },
+        "total_liabilities": { "type": "string" },
+        "stockholders_equity": { "type": "string" }
       },
       "required": [
-        "formType",
-        "fiscalYearEnd",
-        "commissionFileNumber",
-        "companyName",
-        "stateOfIncorporation",
-        "irsEmployerId",
-        "address",
-        "phoneNumber"
+        "total_revenue",
+        "net_income",
+        "total_assets",
+        "total_liabilities",
+        "stockholders_equity"
       ]
     },
-    "securities": {
+    "risk_factors": { "type": "array", "items": { "type": "string" } },
+    "directors_and_executive_officers": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" },
+          "title": { "type": "string" }
+        },
+        "required": ["name", "title"],
+        "additionalProperties": false
+      }
+    },
+    "corporate_governance": {
       "type": "object",
       "properties": {
-        "registeredUnderSection12b": {
+        "board_of_directors": {
           "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "titleOfClass": { "type": "string" },
-              "tradingSymbol": { "type": "string" },
-              "exchangeName": { "type": "string" }
-            },
-            "required": ["titleOfClass", "tradingSymbol", "exchangeName"]
-          }
+          "items": { "type": "string" }
         },
-        "registeredUnderSection12g": { "type": "string" }
+        "committees": { "type": "array", "items": { "type": "string" } }
       },
-      "required": ["registeredUnderSection12b", "registeredUnderSection12g"]
+      "required": ["board_of_directors", "committees"],
+      "additionalProperties": false
     },
-    "issuerStatus": {
+    "legal_proceedings": { "type": "array", "items": { "type": "string" } },
+    "market_for_registrants_common_equity": {
       "type": "object",
+      "additionalProperties": false,
       "properties": {
-        "wellKnownSeasonedIssuer": { "type": "boolean" },
-        "reportsNotRequired": { "type": "boolean" },
-        "filedAllReports": { "type": "boolean" },
-        "subjectToFilingRequirements": { "type": "boolean" },
-        "largeAcceleratedFiler": { "type": "boolean" },
-        "acceleratedFiler": { "type": "boolean" },
-        "nonAcceleratedFiler": { "type": "boolean" },
-        "smallerReportingCompany": { "type": "boolean" },
-        "emergingGrowthCompany": { "type": "boolean" },
-        "shellCompany": { "type": "boolean" }
+        "market_information": { "type": "string" },
+        "holders_of_record": { "type": "integer" },
+        "dividend_policy": { "type": "string" }
       },
-      "required": [
-        "wellKnownSeasonedIssuer",
-        "reportsNotRequired",
-        "filedAllReports",
-        "subjectToFilingRequirements",
-        "largeAcceleratedFiler",
-        "acceleratedFiler",
-        "nonAcceleratedFiler",
-        "smallerReportingCompany",
-        "emergingGrowthCompany",
-        "shellCompany"
-      ]
+      "required": ["market_information", "holders_of_record", "dividend_policy"]
     },
-    "marketValue": {
-      "type": "object",
-      "properties": {
-        "marketValueDate": { "type": "string", "format": "date" },
-        "marketValueAmount": { "type": "string" }
-      },
-      "required": ["marketValueDate", "marketValueAmount"]
-    },
-    "sharesOutstanding": {
-      "type": "object",
-      "properties": {
-        "classA": {
-          "type": "object",
-          "properties": {
-            "date": { "type": "string", "format": "date" },
-            "shares": { "type": "integer" }
-          },
-          "required": ["date", "shares"]
-        },
-        "classB": {
-          "type": "object",
-          "properties": {
-            "date": { "type": "string", "format": "date" },
-            "shares": { "type": "integer" }
-          },
-          "required": ["date", "shares"]
-        }
-      },
-      "required": ["classA", "classB"]
-    },
-    "documentsIncorporatedByReference": {
-      "type": "object",
-      "properties": { "proxyStatement": { "type": "string" } },
-      "required": ["proxyStatement"]
-    },
-    "tableOfContents": {
+    "managements_discussion_and_analysis": { "type": "string" },
+    "financial_statements": { "type": "array", "items": { "type": "string" } },
+    "exhibits": {
       "type": "array",
       "items": {
         "type": "object",
         "properties": {
-          "part": { "type": "string" },
-          "items": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "properties": {
-                "itemNumber": { "type": "string" },
-                "itemTitle": { "type": "string" },
-                "pageNumber": { "type": "integer" }
-              },
-              "required": ["itemNumber", "itemTitle", "pageNumber"]
-            }
-          }
+          "exhibit_number": { "type": "string" },
+          "exhibit_description": { "type": "string" }
         },
-        "required": ["part", "items"]
+        "additionalProperties": false,
+        "required": ["exhibit_number", "exhibit_description"]
       }
-    },
-    "forwardLookingStatements": { "type": "string" },
-    "limitationsOfMetrics": { "type": "string" },
-    "businessOverview": {
-      "type": "object",
-      "properties": {
-        "mission": { "type": "string" },
-        "products": { "type": "array", "items": { "type": "string" } },
-        "financialSegments": { "type": "array", "items": { "type": "string" } },
-        "competition": { "type": "string" },
-        "technology": { "type": "string" },
-        "salesAndOperations": { "type": "string" },
-        "marketing": { "type": "string" },
-        "intellectualProperty": { "type": "string" },
-        "governmentRegulation": { "type": "string" },
-        "humanCapital": { "type": "string" }
-      },
-      "required": [
-        "mission",
-        "products",
-        "financialSegments",
-        "competition",
-        "technology",
-        "salesAndOperations",
-        "marketing",
-        "intellectualProperty",
-        "governmentRegulation",
-        "humanCapital"
-      ]
-    },
-    "riskFactors": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "properties": {
-          "category": { "type": "string" },
-          "risks": { "type": "array", "items": { "type": "string" } }
-        },
-        "required": ["category", "risks"]
-      }
-    },
-    "financialStatements": {
-      "type": "object",
-      "properties": {
-        "balanceSheet": {
-          "type": "object",
-          "properties": {
-            "date": { "type": "string", "format": "date" },
-            "assets": {
-              "type": "object",
-              "properties": {
-                "currentAssets": {
-                  "type": "object",
-                  "properties": {
-                    "cashAndCashEquivalents": { "type": "string" },
-                    "marketableSecurities": { "type": "string" },
-                    "accountsReceivable": { "type": "string" },
-                    "prepaidExpenses": { "type": "string" }
-                  },
-                  "required": [
-                    "cashAndCashEquivalents",
-                    "marketableSecurities",
-                    "accountsReceivable",
-                    "prepaidExpenses"
-                  ]
-                },
-                "nonCurrentAssets": {
-                  "type": "object",
-                  "properties": {
-                    "propertyAndEquipment": { "type": "string" },
-                    "goodwill": { "type": "string" },
-                    "intangibleAssets": { "type": "string" }
-                  },
-                  "required": [
-                    "propertyAndEquipment",
-                    "goodwill",
-                    "intangibleAssets"
-                  ]
-                }
-              },
-              "required": ["currentAssets", "nonCurrentAssets"]
-            },
-            "liabilities": {
-              "type": "object",
-              "properties": {
-                "currentLiabilities": {
-                  "type": "object",
-                  "properties": {
-                    "accountsPayable": { "type": "string" },
-                    "accruedExpenses": { "type": "string" }
-                  },
-                  "required": ["accountsPayable", "accruedExpenses"]
-                },
-                "nonCurrentLiabilities": {
-                  "type": "object",
-                  "properties": { "longTermDebt": { "type": "string" } },
-                  "required": ["longTermDebt"]
-                }
-              },
-              "required": ["currentLiabilities", "nonCurrentLiabilities"]
-            },
-            "equity": {
-              "type": "object",
-              "properties": { "totalEquity": { "type": "string" } },
-              "required": ["totalEquity"]
-            }
-          },
-          "required": ["date", "assets", "liabilities", "equity"]
-        },
-        "incomeStatement": {
-          "type": "object",
-          "properties": {
-            "date": { "type": "string", "format": "date" },
-            "revenue": { "type": "string" },
-            "costOfRevenue": { "type": "string" },
-            "operatingExpenses": { "type": "string" },
-            "netIncome": { "type": "string" }
-          },
-          "required": [
-            "date",
-            "revenue",
-            "costOfRevenue",
-            "operatingExpenses",
-            "netIncome"
-          ]
-        },
-        "cashFlowStatement": {
-          "type": "object",
-          "properties": {
-            "date": { "type": "string", "format": "date" },
-            "cashFromOperatingActivities": { "type": "string" },
-            "cashFromInvestingActivities": { "type": "string" },
-            "cashFromFinancingActivities": { "type": "string" }
-          },
-          "required": [
-            "date",
-            "cashFromOperatingActivities",
-            "cashFromInvestingActivities",
-            "cashFromFinancingActivities"
-          ]
-        }
-      },
-      "required": ["balanceSheet", "incomeStatement", "cashFlowStatement"]
     }
   },
   "required": [
-    "documentType",
-    "reportDetails",
-    "securities",
-    "issuerStatus",
-    "marketValue",
-    "sharesOutstanding",
-    "documentsIncorporatedByReference",
-    "tableOfContents",
-    "forwardLookingStatements",
-    "limitationsOfMetrics",
-    "businessOverview",
-    "riskFactors",
-    "financialStatements"
-  ]
+    "form_type",
+    "fiscal_year_end",
+    "commission_file_number",
+    "company_name",
+    "jurisdiction_of_incorporation",
+    "employer_identification_number",
+    "address",
+    "telephone_number",
+    "securities_registered",
+    "well_known_seasoned_issuer",
+    "reports_filing_requirement",
+    "large_accelerated_filer",
+    "accelerated_filer",
+    "non_accelerated_filer",
+    "smaller_reporting_company",
+    "emerging_growth_company",
+    "shell_company",
+    "aggregate_market_value",
+    "number_of_shares_outstanding",
+    "documents_incorporated_by_reference",
+    "business_overview",
+    "financial_information",
+    "risk_factors",
+    "directors_and_executive_officers",
+    "corporate_governance",
+    "legal_proceedings",
+    "market_for_registrants_common_equity",
+    "managements_discussion_and_analysis",
+    "financial_statements",
+    "exhibits"
+  ],
+  "additionalProperties": false
 }

@@ -1,0 +1,103 @@
+{
+  "form_type": "10-K",
+  "fiscal_year_end": "December 31, 2022",
+  "commission_file_number": "001-35551",
+  "company_name": "Meta Platforms, Inc.",
+  "jurisdiction_of_incorporation": "Delaware",
+  "employer_identification_number": "20-1665019",
+  "address": {
+    "street": "1601 Willow Road",
+    "city": "Menlo Park",
+    "state": "California",
+    "zip_code": "94025"
+  },
+  "telephone_number": "(650) 543-4800",
+  "securities_registered": [
+    {
+      "title_of_class": "Class A Common Stock, $0.000006 par value",
+      "trading_symbol": "META",
+      "exchange_name": "The Nasdaq Stock Market LLC"
+    }
+  ],
+  "well_known_seasoned_issuer": true,
+  "reports_filing_requirement": false,
+  "large_accelerated_filer": true,
+  "accelerated_filer": false,
+  "non_accelerated_filer": false,
+  "smaller_reporting_company": false,
+  "emerging_growth_company": false,
+  "shell_company": false,
+  "aggregate_market_value": "$378 billion",
+  "number_of_shares_outstanding": {
+    "class_a": 2225763078,
+    "class_b": 366876470
+  },
+  "documents_incorporated_by_reference": "Portions of the registrant's Proxy Statement for the 2023 Annual Meeting of Stockholders are incorporated herein by reference in Part III of this Annual Report on Form 10-K to the extent stated herein.",
+  "business_overview": "Meta Platforms, Inc. is focused on building community and bringing the world closer together through its products, including Facebook, Instagram, Messenger, and WhatsApp. The company is investing in the development of the metaverse, which it believes is the next evolution in social technology.",
+  "financial_information": {
+    "total_revenue": "$116.61 billion",
+    "net_income": "$23.20 billion",
+    "total_assets": "$185.73 billion",
+    "total_liabilities": "$60.01 billion",
+    "stockholders_equity": "$125.71 billion"
+  },
+  "risk_factors": [
+    "Failure to retain users or add new users could harm revenue.",
+    "Loss of marketers or reduction in spending could harm business.",
+    "Changes in regulatory environment could impact ad targeting and measurement.",
+    "Competition from other companies could affect user engagement."
+  ],
+  "directors_and_executive_officers": [
+    {
+      "name": "Mark Zuckerberg",
+      "title": "Chairman and Chief Executive Officer"
+    },
+    { "name": "Susan Li", "title": "Chief Financial Officer" },
+    { "name": "Susan J.S. Taylor", "title": "Chief Accounting Officer" }
+  ],
+  "corporate_governance": {
+    "board_of_directors": [
+      "Mark Zuckerberg",
+      "Peggy Alford",
+      "Marc L. Andreessen",
+      "Andrew W. Houston",
+      "Nancy Killefer",
+      "Robert M. Kimmitt",
+      "Sheryl K. Sandberg",
+      "Tracey T. Travis",
+      "Tony Xu"
+    ],
+    "committees": ["Audit & Risk Oversight Committee"]
+  },
+  "legal_proceedings": [
+    "Multiple putative class actions and derivative actions filed alleging violations of securities laws and breach of fiduciary duties.",
+    "Inquiries and investigations by the FTC, state attorneys general, and other government bodies regarding platform and user data practices."
+  ],
+  "market_for_registrants_common_equity": {
+    "market_information": "The Class A common stock is traded on the Nasdaq Global Select Market under the symbol 'META'.",
+    "holders_of_record": 3204,
+    "dividend_policy": "The company has never declared or paid any cash dividend on its common stock and does not expect to pay cash dividends in the foreseeable future."
+  },
+  "managements_discussion_and_analysis": "The company is focused on investing in its family of apps and metaverse efforts. It is addressing challenges in ad targeting and measurement due to regulatory changes and platform updates. The company is also managing cost efficiency through restructuring efforts.",
+  "financial_statements": [
+    "Consolidated Balance Sheets",
+    "Consolidated Statements of Income",
+    "Consolidated Statements of Comprehensive Income",
+    "Consolidated Statements of Stockholders' Equity",
+    "Consolidated Statements of Cash Flows"
+  ],
+  "exhibits": [
+    {
+      "exhibit_number": "3.1",
+      "exhibit_description": "Amended and Restated Certificate of Incorporation."
+    },
+    {
+      "exhibit_number": "4.1",
+      "exhibit_description": "Form of Class A Common Stock Certificate."
+    },
+    {
+      "exhibit_number": "10.1",
+      "exhibit_description": "Form of Indemnification Agreement."
+    }
+  ]
+}

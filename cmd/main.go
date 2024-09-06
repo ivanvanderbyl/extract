@@ -2,8 +2,8 @@ package main
 
 import (
 	"bytes"
+	"fmt"
 	"io"
-	"log/slog"
 	"os"
 
 	"github.com/ivanvanderbyl/extract/cmd/commands/extract"
@@ -44,29 +44,29 @@ func main() {
 					return nil
 				},
 			},
-			// {
-			// 	Name:        "extract",
-			// 	Description: "Extract structured data from a document according to the input JSON Schema",
-			// 	Hidden:      true,
-			// 	Flags: []cli.Flag{
-			// 		&cli.StringFlag{
-			// 			Name:     "schema",
-			// 			Usage:    "The JSON Schema to use for extraction",
-			// 			Required: true,
-			// 		},
-			// 	},
-			// 	Action: func(ctx *cli.Context) error {
-			// 		return nil
-			// 	},
-			// },
+			{
+				Name:        "run",
+				Description: "Extract structured data from a document according to the input JSON Schema",
+				Action:      extract.ExtractCommand,
+				Flags: []cli.Flag{
+					&cli.StringFlag{
+						Name:     "schema",
+						Usage:    "The JSON Schema to use for extraction",
+						Required: true,
+					},
+				},
+				Args:      true,
+				ArgsUsage: "The document to extract data from",
+			},
 		},
-		Args:      true,
-		ArgsUsage: "The document to extract data from",
-		Action:    extract.ExtractCommand,
 	}
 
 	if err := app.Run(os.Args); err != nil {
-		slog.Error("Error running extraction", "error", err)
+		if exitErr, ok := err.(cli.ExitCoder); ok {
+			fmt.Println(exitErr.Error())
+			os.Exit(exitErr.ExitCode())
+		}
+		fmt.Println(err)
 		os.Exit(1)
 	}
 }
